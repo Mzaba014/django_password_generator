@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Password Generator</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <style>
+        html {
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div class="container text-center">
+    <h1>Welcome to my password generator!</h1>
+    <form action="{% url 'password' %}">
+        <label>Choose a password length: </label>
+        <select name="length">
+            <option value="24" selected="selected"> 24</option>
+            <option value="18"> 18</option>
+            <option value="12"> 12</option>
+            <option value="6"> 6</option>
+        </select>
+        <br>
+        <br>
+        <label> Include symbols? ( ex: @#$% )</label>
+        <input type="checkbox" name="include_symbols" checked="False"/>
+        <br>
+        <label>Include numbers? ( ex: 123456 )?</label>
+        <input type="checkbox" name="include_nums" checked="True">
+        <br>
+        <label>Include lowercase characters? ( ex: abcdef )?</label>
+        <input type="checkbox" name="include_lower" checked="True">
+        <br>
+        <label>Include uppercase characters? ( ex: ABCDEF )?</label>
+        <input type="checkbox" name="include_upper" checked="True">
+        <br>
+        <br>
+        <input type="submit" value="Generate Password" class="btn btn-primary">
+    </form>
+    <br>
+</div>
 </body>
 </html>
